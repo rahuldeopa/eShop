@@ -1,12 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux';
-import { clearItems } from '../Store/cartSlice';
+import { clearItems, removeItems } from '../Store/cartSlice';
 
 const Cart = () => {
     const cartItems = useSelector((store) => store.cart.cartItems);
     const total = cartItems.reduce((acc, item) => acc + item.price, 0);
     const dispatch=useDispatch();
+    const removeitem=(id)=>{
+        dispatch(removeItems({id}));
+        alert('item removed');
+    }
     const ClearCart=()=>{
         dispatch(clearItems());
         alert("Cart Cleared")
@@ -26,6 +30,7 @@ const Cart = () => {
 
 
                         <div className="max-w-5xl mx-auto mt-10 border-2">
+                            <button onClick={() => removeitem(item.id)} className='bg-red-700 text-white rounded-md p-2'>Remove</button>
                             <div className="ml-6">
                                 <img className="animate-fadein bg-blend-screen ease-in-out w-60  " src={item.image} alt={item.title} />
                                 <h1 className="font-bold text-xl">{item.title}</h1>
@@ -42,7 +47,7 @@ const Cart = () => {
                 
             }
             <h1>
-                Total:{total}
+                Total:${total.toFixed(2)}
             </h1>
         </div>
     )
