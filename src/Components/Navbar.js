@@ -5,7 +5,7 @@ const Navbar = () => {
 
   return (
       <div className="flex justify-between px-10 py-5 shadow-md ">
-        <h1 className="font-bold text-2xl">Tiwari Collection</h1>
+        <h1 className="font-bold text-2xl">LOGO</h1>
         <ul className="flex justify-between w-[40%]  ">
           <li className="nav-link"><Link to='/' className="">Home</Link></li>
           <li className="nav-link"><Link to="/kid" >Kids</Link></li>
