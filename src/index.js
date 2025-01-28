@@ -12,6 +12,7 @@ import About from "./Components/about";
 import { Provider } from "react-redux";
 import appStore from "./Store/Store";
 import Cart from "./Components/Cart";
+import Login from "./Components/Login";
 
 const Grocery = lazy(() => import('./Components/Grocery'));
 const App = () => {
@@ -57,7 +58,11 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />
-      }
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
 
     ],
     errorElement: <ErrorPage />
